@@ -72,16 +72,32 @@ async def initialize_super_admin():
             detail="Super admin already exists"
         )
     
-    # Create default super admin
+    # Create default super admin with all permissions
     admin = Admin(
         username="admin",
         password_hash=hash_password("admin123"),
         role="super_admin",
         permissions=AdminPermissions(
             canManageAdmins=True,
-            canViewPrivateProjects=True,
-            canAccessPrivateStorage=True,
-            canAccessChat=True
+            canManageAbout=True,
+            canManagePortfolio=True,
+            canManageBlogs=True,
+            canManageTestimonials=True,
+            canManageDemos=True,
+            canViewContacts=True,
+            canManageContactPage=True,
+            canManageChat=True,
+            canManageNewsletter=True,
+            canManageBookings=True,
+            canManageBookingSettings=True,
+            canManagePricing=True,
+            canViewAnalytics=True,
+            canManageClients=True,
+            canManageClientProjects=True,
+            canAccessStorage=True,
+            canManageNotes=True,
+            canManageSettings=True,
+            canViewPrivateProjects=True
         ),
         created_by="system"
     )
@@ -146,8 +162,25 @@ async def create_admin(
     if admin_data.role == "super_admin":
         permissions = AdminPermissions(
             canManageAdmins=True,
-            canViewPrivateProjects=True,
-            canAccessStorage=True
+            canManageAbout=True,
+            canManagePortfolio=True,
+            canManageBlogs=True,
+            canManageTestimonials=True,
+            canManageDemos=True,
+            canViewContacts=True,
+            canManageContactPage=True,
+            canManageChat=True,
+            canManageNewsletter=True,
+            canManageBookings=True,
+            canManageBookingSettings=True,
+            canManagePricing=True,
+            canViewAnalytics=True,
+            canManageClients=True,
+            canManageClientProjects=True,
+            canAccessStorage=True,
+            canManageNotes=True,
+            canManageSettings=True,
+            canViewPrivateProjects=True
         )
     else:
         permissions = admin_data.permissions or AdminPermissions()

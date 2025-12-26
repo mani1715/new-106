@@ -65,7 +65,7 @@ const AdminsManager = () => {
   const fetchAdmins = async () => {
     try {
       const token = localStorage.getItem('admin_token') || localStorage.getItem('adminToken');
-      const response = await axios.get(`${BACKEND_URL}/api/admins/list`, {
+      const response = await axios.get(`${BACKEND_URL}/admins/list`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       setAdmins(response.data.admins);
@@ -94,13 +94,13 @@ const AdminsManager = () => {
         }
         
         await axios.put(
-          `${BACKEND_URL}/api/admins/${editingAdmin.id}`,
+          `${BACKEND_URL}/admins/${editingAdmin.id}`,
           updateData,
           { headers: { Authorization: `Bearer ${token}` } }
         );
       } else {
         await axios.post(
-          `${BACKEND_URL}/api/admins/create`,
+          `${BACKEND_URL}/admins/create`,
           formData,
           { headers: { Authorization: `Bearer ${token}` } }
         );
@@ -119,7 +119,7 @@ const AdminsManager = () => {
     
     try {
       const token = localStorage.getItem('admin_token') || localStorage.getItem('adminToken');
-      await axios.delete(`${BACKEND_URL}/api/admins/${id}`, {
+      await axios.delete(`${BACKEND_URL}/admins/${id}`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       fetchAdmins();

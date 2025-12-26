@@ -36,10 +36,14 @@ const ContactPageManager = () => {
   const handleSave = async () => {
     try {
       setSaving(true);
-      await contactPageService.updateContactPage(content);
+      // Remove fields that shouldn't be sent to backend
+      const { created_at, created_by, updated_at, updated_by, _id, ...cleanContent } = content;
+      await contactPageService.updateContactPage(cleanContent);
       toast.success('Contact page updated successfully!');
     } catch (error) {
-      toast.error('Failed to update contact page');
+      console.error('Full error:', error);
+      console.error('Error response:', error.response?.data);
+      toast.error('Failed to update contact page: ' + (error.response?.data?.detail || error.message));
     } finally {
       setSaving(false);
     }

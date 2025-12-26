@@ -195,8 +195,8 @@ class MSPNAdminAPITester:
         """Test Blogs CRUD operations"""
         print("\n📰 Testing Blogs Management...")
         
-        # Get all blogs
-        success, blogs = self.run_test("Get All Blogs", "GET", "/blogs", 200)
+        # Get all blogs (admin)
+        success, blogs = self.run_test("Get All Blogs", "GET", "/blogs/admin/all", 200)
         
         # Create new blog
         new_blog = {
@@ -209,7 +209,7 @@ class MSPNAdminAPITester:
             "status": "published"
         }
         
-        success, created_blog = self.run_test("Create Blog", "POST", "/blogs", 201, data=new_blog)
+        success, created_blog = self.run_test("Create Blog", "POST", "/blogs/admin/create", 200, data=new_blog)
         
         if success and 'id' in created_blog:
             blog_id = created_blog['id']
@@ -220,10 +220,10 @@ class MSPNAdminAPITester:
                 "content": "Updated content"
             }
             
-            self.run_test(f"Update Blog", "PUT", f"/blogs/{blog_id}", 200, data=updated_blog)
+            self.run_test(f"Update Blog", "PUT", f"/blogs/admin/{blog_id}", 200, data=updated_blog)
             
             # Delete blog
-            self.run_test(f"Delete Blog", "DELETE", f"/blogs/{blog_id}", 200)
+            self.run_test(f"Delete Blog", "DELETE", f"/blogs/admin/{blog_id}", 200)
 
     def test_testimonials_management(self):
         """Test Testimonials CRUD operations"""

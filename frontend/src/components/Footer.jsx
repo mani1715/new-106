@@ -76,13 +76,13 @@ const Footer = () => {
         {/* Footer Top */}
         <div className="footer-top">
           <div className="footer-brand">
-            {/* Logo Image */}
+            {/* Transparent Logo Image */}
             <div style={{ marginBottom: '16px' }}>
               <img 
-                src="/mspn-logo.jpeg" 
+                src="/mspn-logo-transparent.png" 
                 alt="MSPN DEV Logo" 
                 style={{
-                  height: '60px',
+                  height: '70px',
                   width: 'auto',
                   objectFit: 'contain',
                   filter: 'drop-shadow(0 4px 12px rgba(139, 92, 246, 0.4))'

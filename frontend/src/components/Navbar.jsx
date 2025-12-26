@@ -23,7 +23,7 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <div className="navbar-container">
-        {/* Logo with Image */}
+        {/* Logo with Transparent Image */}
         <Link to="/" className="navbar-logo" style={{
           display: 'flex',
           alignItems: 'center',
@@ -31,10 +31,10 @@ const Navbar = () => {
           textDecoration: 'none'
         }}>
           <img 
-            src="/mspn-logo.jpeg" 
+            src="/mspn-logo-transparent.png" 
             alt="MSPN DEV Logo" 
             style={{
-              height: '45px',
+              height: '50px',
               width: 'auto',
               objectFit: 'contain',
               filter: 'drop-shadow(0 2px 8px rgba(139, 92, 246, 0.3))'

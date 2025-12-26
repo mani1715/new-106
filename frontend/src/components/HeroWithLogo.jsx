@@ -1,12 +1,12 @@
 import React from 'react';
 
-const HeroWithLogo = ({ children, showLogo = true, logoOpacity = 0.03 }) => {
+const HeroWithLogo = ({ children, showLogo = true, logoOpacity = 0.04 }) => {
   return (
     <div style={{
       position: 'relative',
       overflow: 'hidden'
     }}>
-      {/* Elegant Logo Background */}
+      {/* Elegant Transparent Logo Background */}
       {showLogo && (
         <div style={{
           position: 'absolute',
@@ -20,13 +20,13 @@ const HeroWithLogo = ({ children, showLogo = true, logoOpacity = 0.03 }) => {
           zIndex: 0
         }}>
           <img 
-            src="/mspn-logo.jpeg" 
+            src="/mspn-logo-transparent.png" 
             alt="" 
             style={{
               width: '100%',
               height: '100%',
               objectFit: 'contain',
-              filter: 'blur(2px)'
+              filter: 'blur(1px)'
             }}
           />
         </div>

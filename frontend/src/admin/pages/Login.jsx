@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Lock, User, Sparkles } from 'lucide-react';
+import { Lock, User } from 'lucide-react';
 import axios from 'axios';
 import '../admin.css';
 
@@ -72,19 +72,22 @@ const Login = () => {
         width: '100%',
         boxShadow: '0 20px 60px rgba(0, 0, 0, 0.3)'
       }}>
-        {/* Logo */}
+        {/* MSPN DEV Logo */}
         <div style={{ textAlign: 'center', marginBottom: '32px' }}>
           <div style={{
-            width: '64px',
-            height: '64px',
-            background: 'linear-gradient(135deg, #7C5CFF, #D4AF37)',
-            borderRadius: '12px',
-            display: 'inline-flex',
-            alignItems: 'center',
-            justifyContent: 'center',
+            display: 'inline-block',
             marginBottom: '16px'
           }}>
-            <Sparkles size={32} color="white" />
+            <img 
+              src="/mspn-logo-transparent.png" 
+              alt="MSPN DEV Logo" 
+              style={{
+                height: '80px',
+                width: 'auto',
+                objectFit: 'contain',
+                filter: 'drop-shadow(0 4px 12px rgba(139, 92, 246, 0.3))'
+              }}
+            />
           </div>
           <h1 style={{
             fontSize: '28px',

@@ -20,7 +20,7 @@ const SkillsManager = () => {
 
   const fetchSkills = async () => {
     try {
-      const response = await axios.get(`${BACKEND_URL}/api/skills`);
+      const response = await axios.get(`${BACKEND_URL}/skills`);
       setSkills(response.data.skills);
     } catch (error) {
       console.error('Error fetching skills:', error);
@@ -36,13 +36,13 @@ const SkillsManager = () => {
     try {
       if (editingSkill) {
         await axios.put(
-          `${BACKEND_URL}/api/skills/${editingSkill.id}`,
+          `${BACKEND_URL}/skills/${editingSkill.id}`,
           formData,
           { headers: { Authorization: `Bearer ${token}` } }
         );
       } else {
         await axios.post(
-          `${BACKEND_URL}/api/skills`,
+          `${BACKEND_URL}/skills`,
           formData,
           { headers: { Authorization: `Bearer ${token}` } }
         );
@@ -61,7 +61,7 @@ const SkillsManager = () => {
     
     try {
       const token = localStorage.getItem('admin_token') || localStorage.getItem('adminToken');
-      await axios.delete(`${BACKEND_URL}/api/skills/${id}`, {
+      await axios.delete(`${BACKEND_URL}/skills/${id}`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       fetchSkills();
